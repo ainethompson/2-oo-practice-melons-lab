@@ -84,7 +84,22 @@ class Melon(object):
     """A melon in a melon harvest."""
 
     # Fill in the rest
-    # Needs __init__ and is_sellable methods
+    def __init__(self, melon_type, shape_rating, color_rating, harvested_from, harvested_by):
+        """Initialize a melon in a melon harvest"""
+        
+        self.melon_type = melon_type
+        self.shape_rating = shape_rating
+        self.color_rating = color_rating
+        self.harvested_from = harvested_from
+        self.harvested_by = harvested_by
+
+    def is_sellable(self):
+        """Determine if melon is able to be sold"""
+        
+        if self.color_rating > 5 and self.shape_rating > 5 and self.harvested_from != 'Field 3':
+            return True
+        return False
+
 
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
