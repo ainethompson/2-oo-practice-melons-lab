@@ -10,18 +10,25 @@ class MelonType(object):
                  name):
         """Initialize a melon."""
 
+        self.name = name
+        self.code = code
+        self.first_harvest = first_harvest
+        self.color = color
+        self.is_seedless = is_seedless
+        self.is_bestseller = is_bestseller
+
         self.pairings = []
 
-        # Fill in the rest
 
     def add_pairing(self, pairing):
         """Add a food pairing to the instance's pairings list."""
 
+        self.pairings.append(pairing)
 
     def update_code(self, new_code):
         """Replace the reporting code with the new_code."""
 
-
+        self.code = new_code
 
 def make_melon_types():
     """Returns a list of current melon types."""
