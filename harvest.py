@@ -100,12 +100,12 @@ class Melon():
         return False
 
 
+melons_by_id = make_melon_type_lookup(melon_types)
+
 def make_melons(melon_types):           #call with make_melon_types() function
     """Returns a list of Melon objects."""
 
     all_melons = []
-
-    melons_by_id = make_melon_type_lookup(melon_types)
 
     melon_1 = Melon(melons_by_id['yw'], 8, 7, 2, 'Sheila')
 
@@ -142,3 +142,18 @@ def get_sellability_report(melons):
             print(f'{msg} (NOT SELLABLE)')
 
 #pass in make_melons(melon_types) as list of melon objects
+
+
+def make_melon_objects(filename):
+
+    with open(filename) as f:
+        for line in f:
+            l = line.rstrip().split(' ')
+
+            shape, color, melon_type, harvested_by, field = l[1], l[3], l[5], l[8], l[11]
+           
+            melon_object = Melon(melons_by_id[melon_type], 
+                                shape, color, field, harvested_by)
+           
+            print(melon_object)
+
